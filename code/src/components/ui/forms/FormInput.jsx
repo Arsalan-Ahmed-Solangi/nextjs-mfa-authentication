@@ -1,6 +1,6 @@
 import TextField from "@mui/material/TextField";
 
-const FormTextInput = ({ name, value = "", onChange = null, ...props }) => {
+const FormInput = ({ name, value = "", onChange = null, ...props }) => {
   return (
     <TextField
       size="small"
@@ -9,8 +9,13 @@ const FormTextInput = ({ name, value = "", onChange = null, ...props }) => {
       value={value}
       onChange={onChange || (() => {})}
       {...props}
+      sx={{
+        "& .MuiInputBase-input::placeholder": {
+          fontSize: "14px",
+        },
+      }}
     />
   );
 };
 
-export default FormTextInput;
+export default FormInput;
