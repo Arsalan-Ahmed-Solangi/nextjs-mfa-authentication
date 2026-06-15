@@ -5,7 +5,8 @@ class ENVConfig {
   static DB_USER = process.env.DB_USER;
   static DB_PASSWORD = process.env.DB_PASSWORD;
   static JWT_SECRET = process.env.JWT_SECRET;
-  JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || "1h";
+  static JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || "1h";
+  static API_URL = process.env.NEXT_PUBLIC_API_URL;
 }
 
 export default ENVConfig;
