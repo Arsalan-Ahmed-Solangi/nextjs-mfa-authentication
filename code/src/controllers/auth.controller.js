@@ -1,5 +1,7 @@
 import TimeHelper from "@/helpers/time.helper";
+import CookieClassLib from "@/lib/CookieClass.lib";
 import DatabaseClassLib from "@/lib/DatabaseClass.lib";
+import JWTClassLib from "@/lib/JWTClass.lib";
 
 class AuthController {
   static login = async (body) => {
@@ -25,7 +27,14 @@ class AuthController {
         };
       }
 
-      return { message: "Login successful", token: "Token Baby Workflow" };
+      const token = JWTClassLib.generate({
+        user_id: res[0].user_id,
+        email: res[0].email,
+      });
+
+      await CookieClassLib.setAuthToken(token);
+
+      return { message: "Login successful" };
     } catch (err) {
       console.log(`~ERROR AuthController.login ${err.message}`);
       throw new Error(err.message);

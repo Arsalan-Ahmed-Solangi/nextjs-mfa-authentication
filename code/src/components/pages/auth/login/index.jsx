@@ -30,7 +30,7 @@ const Login = () => {
   };
 
   const gotoMFA = (userId) => {
-    return router.push(`${ROUTES.auth.mfa}?userId=${userId}`);
+    return router.push(`${ROUTES.auth.mfa}?user_id=${userId}`);
   };
 
   const handleSubmit = async () => {

@@ -29,7 +29,6 @@ class DatabaseClassLib {
 
   static executeQuery = async ({ query, values = [] }, connection = null) => {
     const conn = connection || (await this.dbConnection());
-            console.log("THIS",this.pool,conn)
 
     try {
       const [results] = await conn.execute(query, values);

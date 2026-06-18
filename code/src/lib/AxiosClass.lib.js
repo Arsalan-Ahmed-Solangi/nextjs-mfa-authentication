@@ -4,7 +4,7 @@ import axios from "axios";
 class AxiosClassLib {
   static axios = axios.create({
     baseURL: ENVConfig.API_URL,
-    timeout: 10000,
+    timeout: 100000,
     headers: {
       "Content-Type": "application/json",
     },
@@ -49,7 +49,6 @@ class AxiosClassLib {
   static async delete(url, config = {}) {
     try {
       const response = await this.axios.delete(url, config);
-
       return response.data;
     } catch (err) {
       this.handleError(err);
